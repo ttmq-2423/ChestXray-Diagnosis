@@ -1,0 +1,31 @@
+services:
+  backend:
+    build:
+      context: ./gemini_chat_backend # Đường dẫn đến thư mục chứa Dockerfile của backend
+      dockerfile: Dockerfile
+    container_name: gemini_chat_api_backend
+    env_file:
+      - ./gemini_chat_backend/.env # Tải biến môi trường từ file .env của backend
+    # volumes: # Bỏ comment nếu muốn live-reload code backend trong quá trình phát triển
+    #   - ./gemini_chat_backend/app:/app/app
+    networks:
+      - gemini_chat_network
+
+  frontend:
+    build:
+      context: ./gemini_chat_frontend # Đường dẫn đến thư mục chứa Dockerfile của frontend
+      dockerfile: Dockerfile
+    container_name: gemini_chat_ui_frontend
+    ports:
+      - "25000:80" # Map port 302500000 của host vào port 80 của Nginx trong container --> port 25000 chính được phát hành
+    depends_on: # Đảm bảo backend khởi động trước (không hoàn toàn đảm bảo backend sẵn sàng, nhưng là một gợi ý)
+      - backend
+    # volumes: # Bỏ comment nếu muốn live-reload code frontend (cần cấu hình Vite/CRA cho phù hợp)
+    #   - ./gemini_chat_frontend/src:/app/src
+    #   - ./gemini_chat_frontend/public:/app/public
+    networks:
+      - gemini_chat_network
+
+networks: # Định nghĩa một custom network để các container giao tiếp dễ dàng bằng tên service
+  gemini_chat_network:
+    driver: bridge
