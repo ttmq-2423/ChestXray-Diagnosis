@@ -17,7 +17,7 @@ services:
       dockerfile: Dockerfile
     container_name: gemini_chat_ui_frontend
     ports:
-      - "25000:80" # Map port 302500000 của host vào port 80 của Nginx trong container --> port 25000 chính được phát hành
+      - "21014:80" # Map port 302500000 của host vào port 80 của Nginx trong container --> port 25000 chính được phát hành
     depends_on: # Đảm bảo backend khởi động trước (không hoàn toàn đảm bảo backend sẵn sàng, nhưng là một gợi ý)
       - backend
     # volumes: # Bỏ comment nếu muốn live-reload code frontend (cần cấu hình Vite/CRA cho phù hợp)
