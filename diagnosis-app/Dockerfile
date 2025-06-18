@@ -2,16 +2,15 @@
 FROM node:22-alpine AS builder
 
 WORKDIR /app
-COPY package.json pnpm-lock.yaml* ./
+COPY package.json pnpm-lock.yaml ./
 RUN npm install -g pnpm && pnpm install
 
 COPY . .
-RUN pnpm run build && pnpm run export
+RUN pnpm run build
 
 # ------------ Stage 2: Serve Static App ------------
 FROM node:22-alpine AS runner
 
-# Install 'serve' package to serve static files
 RUN npm install -g serve
 
 WORKDIR /app
