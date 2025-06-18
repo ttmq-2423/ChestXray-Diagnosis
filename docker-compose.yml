@@ -40,7 +40,8 @@ services:
     ports:
       - "21014:3000"           
     environment:
-      NODE_ENV: production
+      NODE_ENV: stest
+      #NODE_ENV: production
     volumes:                
       - /app/node_modules      
     restart: unless-stopped
