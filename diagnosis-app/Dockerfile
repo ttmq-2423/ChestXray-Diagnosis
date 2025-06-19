@@ -1,11 +1,12 @@
 # ------------ Stage 1: Build Next.js App ------------
 FROM node:22-alpine AS builder
 
-WORKDIR /app
+WORKDIR /ChestXray-Diagnosis/
 COPY package.json pnpm-lock.yaml ./
 RUN npm install -g pnpm && pnpm install
 
 COPY . .
+ENV NODE_ENV=production
 RUN pnpm run build
 
 # ------------ Stage 2: Serve Static App ------------
