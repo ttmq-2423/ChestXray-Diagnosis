@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
+ 
   images: { unoptimized: true },
 
-  basePath: process.env.NODE_ENV === "production" ? "/ChestXray-Diagnosis" : "",
-  assetPrefix: process.env.NODE_ENV === "production" ? "/ChestXray-Diagnosis/" : "",
+  output: 'standalone', 
+  basePath: '/ChestXray-Diagnosis',
+  assetPrefix: '/ChestXray-Diagnosis/',
 };
 
 export default nextConfig;

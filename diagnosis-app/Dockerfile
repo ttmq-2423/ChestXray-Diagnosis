@@ -1,21 +1,27 @@
-# ------------ Stage 1: Build Next.js App ------------
+# ------------ Stage 1: Build App ------------
 FROM node:22-alpine AS builder
 
-WORKDIR /ChestXray-Diagnosis/
+WORKDIR /app
+
 COPY package.json pnpm-lock.yaml ./
 RUN npm install -g pnpm && pnpm install
 
 COPY . .
-ENV NODE_ENV=production
+
 RUN pnpm run build
 
-# ------------ Stage 2: Serve Static App ------------
+# ------------ Stage 2: Production Image ------------
 FROM node:22-alpine AS runner
 
-RUN npm install -g serve
-
 WORKDIR /app
-COPY --from=builder /app/out ./
+
+ENV NODE_ENV production
+
+# Copy standalone build
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/public ./public
 
 EXPOSE 3000
-CMD ["serve", "-s", ".", "-l", "3000"]
+
+CMD ["node", "server.js"]

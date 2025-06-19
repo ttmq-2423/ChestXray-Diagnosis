@@ -1,6 +1,5 @@
 const getImagePrefix = () => {
-  return "/";
+  return process.env.NODE_ENV === "production" ? "/ChestXray-Diagnosis/" : "/";
 };
 
 export { getImagePrefix };
- 
