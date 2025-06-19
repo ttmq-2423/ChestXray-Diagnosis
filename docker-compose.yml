@@ -39,9 +39,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "21014:3000"           
-    environment:
-      #NODE_ENV: stest
-      NODE_ENV: production
+    env_file:
+      - ./diagnosis-app/.env 
     volumes:                
       - /app/node_modules      
     restart: unless-stopped
