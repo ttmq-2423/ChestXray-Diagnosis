@@ -4,8 +4,9 @@ const nextConfig = {
   images: { unoptimized: true },
 
   output: 'standalone', 
-  basePath: '/ChestXray-Diagnosis/',
-  assetPrefix: '/ChestXray-Diagnosis/',
+  trailingSlash: true,
+  //basePath: '/ChestXray-Diagnosis',
+  //assetPrefix: '/ChestXray-Diagnosis/',
 };
 
 export default nextConfig;
