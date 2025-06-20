@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import Link from "next/link";
 import { headerData } from "../Header/Navigation/menuData";
-import { footerlabels } from "@/app/api/data";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Logo from "../Header/Logo";
@@ -59,21 +58,7 @@ const Footer: FC = () => {
               ))}
             </ul>
           </div>
-          <div className="lg:col-span-2 md:col-span-3 col-span-6">
-            <h4 className="text-white mb-4 font-medium text-24">Information</h4>
-            <ul>
-              {footerlabels.map((item, index) => (
-                <li key={index} className="pb-4">
-                  <Link
-                    href={item.herf}
-                    className="text-white hover:text-primary text-17"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          
           <div className="lg:col-span-4 md:col-span-4 col-span-6">
             <h3 className="text-white text-24 font-medium">Subscribe</h3>
             <p className="text-muted text-opacity-60 text-18 mt-5">
