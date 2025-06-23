@@ -6,7 +6,7 @@ const nextConfig = {
   output: 'standalone', 
   trailingSlash: true,
   basePath: '/ChestXray-Diagnosis',
-  //assetPrefix: '/ChestXray-Diagnosis/',
+  assetPrefix: '/ChestXray-Diagnosis/',
 };
 
 export default nextConfig;
