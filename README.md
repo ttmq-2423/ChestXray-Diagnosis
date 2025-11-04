@@ -122,3 +122,15 @@ Hệ thống sử dụng mô hình lai **ConvNeXt-MobileViT-Tiny**, kết hợp 
 
 
 Hệ thống được thiết kế với kiến trúc hiện đại và tập trung vào việc cung cấp một công cụ chẩn đoán hiệu quả và chính xác cho cộng đồng y tế.
+
+
+## Ghi nhận & Cảm ơn
+
+Giao diện gốc được thiết kế và phát triển bởi đội ngũ **GetNext.jsTemplates**.  
+Dự án này được **tuỳ chỉnh và mở rộng** bởi Minh Quỳnh để phù hợp với mục đích phát triển website cá nhân, bao gồm:
+- Tái cấu trúc bố cục và thêm các phần nội dung mới  
+- Kết nối backend và xử lý dữ liệu động  
+- Tối ưu giao diện cho các thiết bị và cải thiện trải nghiệm người dùng  
+- Thêm hiệu ứng, hoạt ảnh và tinh chỉnh thiết kế tổng thể  
+
+Toàn bộ phần logic, tính năng mới và phần mở rộng được phát triển độc lập.

@@ -208,7 +208,7 @@ const Diagnosis = () => {
 
       const startTime = Date.now();
       const response = await fetch(
-        'https://ji2izuollh.execute-api.us-east-1.amazonaws.com/test-pro/', 
+        'https://', 
         {
           method: 'POST',
           headers: {
